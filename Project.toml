@@ -1,7 +1,10 @@
 name = "SimpleQuantumCircuit"
 uuid = "435ee224-1b87-4f8d-89fc-f6e8a2c17c6c"
 authors = ["Malay Marut Das"]
-version = "1.0.0-DEV"
+version = "0.1.0"
+
+[deps]
+LinearAlgebra = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
 
 [compat]
 julia = "1"
