@@ -94,7 +94,7 @@ Example circuit(5,(H,[1]),(CX,[1,2]))
 function circuit(n, gateList...)
     plotCircuit(n, gateList...)
     circuitDim = 2^n
-    U = Matrix{T}(I(circuitDim))
+    U = Matrix{Complex{T}}(I(circuitDim))
     for gate in gateList
         if T == BigFloat
             U = BigFloat_matrix_multiply(expandGate(n, gate[1], gate[2]),U)
@@ -197,7 +197,7 @@ function BigFloat_matrix_multiply(A::Matrix, B::Matrix)::Matrix
   end
 
   # Create a result matrix of zeros
-  C = zeros(BigFloat, rows_A, cols_B)
+  C = zeros(Complex{T}, rows_A, cols_B)
 
   Threads.@threads for i = 1:rows_A
       for j = 1:cols_B

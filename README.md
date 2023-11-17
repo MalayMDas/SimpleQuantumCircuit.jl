@@ -102,6 +102,6 @@ There is a global variable "T" in the module that defines the precision. If you 
 H(qubitOrder=missing) = gate([T(1) T(1); T(1) T(-1)]/sqrt(T(2)), qubitOrder, "H")
 ```
 
-## Importand Notes
+## Important Notes
 This does not have much optimizations and all calculations are done in dense matrices.
 Hence, this module is not preferable on high qubit count circuits.
