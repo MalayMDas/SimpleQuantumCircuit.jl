@@ -7,8 +7,8 @@ using Test
     @test SimpleQuantumCircuit.X([1])[1] == [0 1; 1 0]    # check gate() function
     @test SimpleQuantumCircuit.X([1])[2] == [1]    # check gate() function
     @test SimpleQuantumCircuit.X([1])[3] == "X"    # check gate() function
-    # @test SimpleQuantumCircuit.cnot() == [1 0 0 0; 0 0 0 1; 0 0 1 0; 0 1 0 0]  # Check control gate
-    # @test SimpleQuantumCircuit.circuit(2, cnot([1,2]) ) == [1 0 0 0; 0 0 0 1; 0 0 1 0; 0 1 0 0]  # Check building circuits
+    @test SimpleQuantumCircuit.cnot() == Float64.([1 0 0 0; 0 0 0 1; 0 0 1 0; 0 1 0 0])  # Check control gate
+    @test SimpleQuantumCircuit.circuit(2, cnot([1,2]) ) == Float64.([1 0 0 0; 0 0 0 1; 0 0 1 0; 0 1 0 0])  # Check building circuits
 
     # check higher precision
     setType(BigFloat)
@@ -16,5 +16,5 @@ using Test
     @test typeof(H()) == Matrix{BigFloat}
 
     # check higher percision circuits
-    @test SimpleQuantumCircuit.circuit(2, cnot([1,2]) ) == [1 0 0 0; 0 0 0 1; 0 0 1 0; 0 1 0 0] 
+    @test SimpleQuantumCircuit.circuit(2, cnot([1,2]) ) == Float64.([1 0 0 0; 0 0 0 1; 0 0 1 0; 0 1 0 0]) 
 end
