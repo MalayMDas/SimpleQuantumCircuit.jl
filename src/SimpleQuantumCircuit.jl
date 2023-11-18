@@ -94,7 +94,8 @@ Example circuit(5,(H,[1]),(CX,[1,2]))
 function circuit(n, gateList...)
     plotCircuit(n, gateList...)
     circuitDim = 2^n
-    U = Matrix{Complex{T}}(I(circuitDim))
+    U = Matrix(I(circuitDim))
+    U = Matrix{Complex{T}}(U)
     for gate in gateList
         if T == BigFloat
             U = BigFloat_matrix_multiply(expandGate(n, gate[1], gate[2]),U)
